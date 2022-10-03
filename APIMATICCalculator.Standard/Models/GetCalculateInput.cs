@@ -33,26 +33,14 @@ namespace APIMATICCalculator.Standard.Models
         /// <param name="operation">operation.</param>
         /// <param name="x">x.</param>
         /// <param name="y">y.</param>
-        /// <param name="stringparam">stringparam.</param>
-        /// <param name="dateparam">dateparam.</param>
-        /// <param name="numparam">numparam.</param>
-        /// <param name="objparam">objparam.</param>
         public GetCalculateInput(
             Models.OperationTypeEnum operation,
             double x,
-            double y,
-            string stringparam = null,
-            DateTime? dateparam = null,
-            int? numparam = null,
-            object objparam = null)
+            double y)
         {
             this.Operation = operation;
             this.X = x;
             this.Y = y;
-            this.Stringparam = stringparam;
-            this.Dateparam = dateparam;
-            this.Numparam = numparam;
-            this.Objparam = objparam;
         }
 
         /// <summary>
@@ -72,31 +60,6 @@ namespace APIMATICCalculator.Standard.Models
         /// </summary>
         [JsonProperty("y")]
         public double Y { get; set; }
-
-        /// <summary>
-        /// Gets or sets Stringparam.
-        /// </summary>
-        [JsonProperty("stringparam", NullValueHandling = NullValueHandling.Ignore)]
-        public string Stringparam { get; set; }
-
-        /// <summary>
-        /// Gets or sets Dateparam.
-        /// </summary>
-        [JsonConverter(typeof(APIMATICCalculator.Standard.Utilities.UnixDateTimeConverter))]
-        [JsonProperty("dateparam", NullValueHandling = NullValueHandling.Ignore)]
-        public DateTime? Dateparam { get; set; }
-
-        /// <summary>
-        /// Gets or sets Numparam.
-        /// </summary>
-        [JsonProperty("numparam", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Numparam { get; set; }
-
-        /// <summary>
-        /// Gets or sets Objparam.
-        /// </summary>
-        [JsonProperty("objparam", NullValueHandling = NullValueHandling.Ignore)]
-        public object Objparam { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -124,11 +87,7 @@ namespace APIMATICCalculator.Standard.Models
             return obj is GetCalculateInput other &&
                 this.Operation.Equals(other.Operation) &&
                 this.X.Equals(other.X) &&
-                this.Y.Equals(other.Y) &&
-                ((this.Stringparam == null && other.Stringparam == null) || (this.Stringparam?.Equals(other.Stringparam) == true)) &&
-                ((this.Dateparam == null && other.Dateparam == null) || (this.Dateparam?.Equals(other.Dateparam) == true)) &&
-                ((this.Numparam == null && other.Numparam == null) || (this.Numparam?.Equals(other.Numparam) == true)) &&
-                ((this.Objparam == null && other.Objparam == null) || (this.Objparam?.Equals(other.Objparam) == true));
+                this.Y.Equals(other.Y);
         }
         
 
@@ -141,10 +100,6 @@ namespace APIMATICCalculator.Standard.Models
             toStringOutput.Add($"this.Operation = {this.Operation}");
             toStringOutput.Add($"this.X = {this.X}");
             toStringOutput.Add($"this.Y = {this.Y}");
-            toStringOutput.Add($"this.Stringparam = {(this.Stringparam == null ? "null" : this.Stringparam == string.Empty ? "" : this.Stringparam)}");
-            toStringOutput.Add($"this.Dateparam = {(this.Dateparam == null ? "null" : this.Dateparam.ToString())}");
-            toStringOutput.Add($"this.Numparam = {(this.Numparam == null ? "null" : this.Numparam.ToString())}");
-            toStringOutput.Add($"Objparam = {(this.Objparam == null ? "null" : this.Objparam.ToString())}");
         }
     }
 }

@@ -29,16 +29,19 @@ namespace APIMATICCalculator.Standard.Controllers
         /// Initializes a new instance of the <see cref="BaseController"/> class.
         /// </summary>
         /// <param name="config">Configuration for the API.</param>
+        /// <param name="httpCallBack">HTTP callback to catch before/after HTTP request/response events.</param>
         /// <param name="httpClient">HttpClient for the API.</param>
         /// <param name="authManagers">AuthManagers for the API.</param>
         internal BaseController(
             IConfiguration config,
             IHttpClient httpClient,
-            IDictionary<string, IAuthManager> authManagers)
+            IDictionary<string, IAuthManager> authManagers,
+            HttpCallBack httpCallBack = null)
         {
             this.Config = config;
             this.httpClient = httpClient;
             this.AuthManagers = authManagers;
+            this.HttpCallBack = httpCallBack;
             this.UpdateUserAgent();
         }
 
@@ -46,6 +49,11 @@ namespace APIMATICCalculator.Standard.Controllers
         /// Gets AuthManager instance.
         /// </summary>
         internal IDictionary<string, IAuthManager> AuthManagers { get; }
+
+        /// <summary>
+        /// Gets HttpCallBack instance.
+        /// </summary>
+        internal HttpCallBack HttpCallBack { get; }
 
         /// <summary>
         /// Gets array deserialization format.

@@ -1,0 +1,15 @@
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\APIMATICCalculatorStandard.deps.json
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\APIMATICCalculatorStandard.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\APIMATICCalculatorStandard.pdb
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\Microsoft.CSharp.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\Polly.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\bin\Debug\netstandard2.0\System.Collections.Immutable.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.csproj.AssemblyReference.cache
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.AssemblyInfoInputs.cache
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.AssemblyInfo.cs
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.csproj.CoreCompileInputs.cache
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculator.Standard.csproj.CopyComplete
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculatorStandard.dll
+C:\Users\mrafn\OneDrive\Documents\APIMatic\Tasks\Task 7\calculator-api-cs\APIMATICCalculator.Standard\obj\Debug\netstandard2.0\APIMATICCalculatorStandard.pdb

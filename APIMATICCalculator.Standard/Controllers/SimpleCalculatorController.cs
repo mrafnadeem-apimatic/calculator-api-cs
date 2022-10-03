@@ -32,8 +32,9 @@ namespace APIMATICCalculator.Standard.Controllers
         /// <param name="config"> config instance. </param>
         /// <param name="httpClient"> httpClient. </param>
         /// <param name="authManagers"> authManager. </param>
-        internal SimpleCalculatorController(IConfiguration config, IHttpClient httpClient, IDictionary<string, IAuthManager> authManagers)
-            : base(config, httpClient, authManagers)
+        /// <param name="httpCallBack"> httpCallBack. </param>
+        internal SimpleCalculatorController(IConfiguration config, IHttpClient httpClient, IDictionary<string, IAuthManager> authManagers, HttpCallBack httpCallBack = null)
+            : base(config, httpClient, authManagers, httpCallBack)
         {
         }
 
@@ -78,10 +79,6 @@ namespace APIMATICCalculator.Standard.Controllers
             {
                 { "x", input.X },
                 { "y", input.Y },
-                { "stringparam", input.Stringparam },
-                { "dateparam", input.Dateparam.HasValue ? (double?)input.Dateparam.Value.ToUniversalTime().Subtract(new DateTime(1970, 1, 1)).TotalSeconds : null },
-                { "numparam", input.Numparam },
-                { "objparam", input.Objparam },
             };
 
             // append request with appropriate headers and parameters
@@ -93,9 +90,18 @@ namespace APIMATICCalculator.Standard.Controllers
             // prepare the API call request to fetch the response.
             HttpRequest httpRequest = this.GetClientInstance().Get(queryBuilder.ToString(), headers, queryParameters: queryParams);
 
+            if (this.HttpCallBack != null)
+            {
+                this.HttpCallBack.OnBeforeHttpRequestEventHandler(this.GetClientInstance(), httpRequest);
+            }
+
             // invoke request and get response.
             HttpStringResponse response = await this.GetClientInstance().ExecuteAsStringAsync(httpRequest, cancellationToken: cancellationToken).ConfigureAwait(false);
             HttpContext context = new HttpContext(httpRequest, response);
+            if (this.HttpCallBack != null)
+            {
+                this.HttpCallBack.OnAfterHttpResponseEventHandler(this.GetClientInstance(), response);
+            }
 
             // handle errors defined at the API level.
             this.ValidateResponse(response, context);

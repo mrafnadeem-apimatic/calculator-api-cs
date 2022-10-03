@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ACSqZzmz70rZ1UFAzfaDi4eN++FwJAYZM3gV52r6q0CaeInUL//YEa0f1YfE6A6M2kmbERBsLIJgDNdEFt7UGw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mrafn\\OneDrive\\Documents\\APIMatic\\Tasks\\Task 7\\calculator-api-cs\\APIMATICCalculator.Standard\\APIMATICCalculator.Standard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mrafn\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\mrafn\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\mrafn\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\mrafn\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\mrafn\\.nuget\\packages\\polly\\7.2.1\\polly.7.2.1.nupkg.sha512",
+    "C:\\Users\\mrafn\\.nuget\\packages\\system.collections.immutable\\1.5.0\\system.collections.immutable.1.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

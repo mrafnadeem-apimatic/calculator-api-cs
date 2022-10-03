@@ -33,6 +33,7 @@ namespace APIMATICCalculator.Standard
 
         private readonly IDictionary<string, IAuthManager> authManagers;
         private readonly IHttpClient httpClient;
+        private readonly HttpCallBack httpCallBack;
 
         private readonly Lazy<SimpleCalculatorController> simpleCalculator;
 
@@ -40,15 +41,17 @@ namespace APIMATICCalculator.Standard
             Environment environment,
             IDictionary<string, IAuthManager> authManagers,
             IHttpClient httpClient,
+            HttpCallBack httpCallBack,
             IHttpClientConfiguration httpClientConfiguration)
         {
             this.Environment = environment;
+            this.httpCallBack = httpCallBack;
             this.httpClient = httpClient;
             this.authManagers = (authManagers == null) ? new Dictionary<string, IAuthManager>() : new Dictionary<string, IAuthManager>(authManagers);
             this.HttpClientConfiguration = httpClientConfiguration;
 
             this.simpleCalculator = new Lazy<SimpleCalculatorController>(
-                () => new SimpleCalculatorController(this, this.httpClient, this.authManagers));
+                () => new SimpleCalculatorController(this, this.httpClient, this.authManagers, this.httpCallBack));
         }
 
         /// <summary>
@@ -78,6 +81,11 @@ namespace APIMATICCalculator.Standard
         internal IHttpClient HttpClient => this.httpClient;
 
         /// <summary>
+        /// Gets http callback.
+        /// </summary>
+        internal HttpCallBack HttpCallBack => this.httpCallBack;
+
+        /// <summary>
         /// Gets the URL for a particular alias in the current environment and appends
         /// it with template parameters.
         /// </summary>
@@ -99,6 +107,7 @@ namespace APIMATICCalculator.Standard
         {
             Builder builder = new Builder()
                 .Environment(this.Environment)
+                .HttpCallBack(this.httpCallBack)
                 .HttpClient(this.httpClient)
                 .AuthManagers(this.authManagers)
                 .HttpClientConfig(config => config.Build());
@@ -153,6 +162,7 @@ namespace APIMATICCalculator.Standard
             private IDictionary<string, IAuthManager> authManagers = new Dictionary<string, IAuthManager>();
             private HttpClientConfiguration.Builder httpClientConfig = new HttpClientConfiguration.Builder();
             private IHttpClient httpClient;
+            private HttpCallBack httpCallBack;
 
             /// <summary>
             /// Sets Environment.
@@ -204,6 +214,17 @@ namespace APIMATICCalculator.Standard
             }
 
             /// <summary>
+            /// Sets the HttpCallBack for the Builder.
+            /// </summary>
+            /// <param name="httpCallBack"> http callback. </param>
+            /// <returns>Builder.</returns>
+            internal Builder HttpCallBack(HttpCallBack httpCallBack)
+            {
+                this.httpCallBack = httpCallBack;
+                return this;
+            }
+
+            /// <summary>
             /// Creates an object of the APIMATICCalculatorClient using the values provided for the builder.
             /// </summary>
             /// <returns>APIMATICCalculatorClient.</returns>
@@ -215,6 +236,7 @@ namespace APIMATICCalculator.Standard
                     this.environment,
                     this.authManagers,
                     this.httpClient,
+                    this.httpCallBack,
                     this.httpClientConfig.Build());
             }
         }
